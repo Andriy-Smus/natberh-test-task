@@ -1,0 +1,8 @@
+@charset "UTF-8";
+.card {
+  border-radius: 5px; /* Закруглені кути */
+}
+
+.card-title {
+  color: #333; /* Колір тексту заголовку картки */
+}/*# sourceMappingURL=product-list.component.css.map */

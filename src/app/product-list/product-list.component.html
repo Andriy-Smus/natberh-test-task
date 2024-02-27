@@ -1,0 +1,48 @@
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card shadow bg-success-subtle">
+        <div class="card-body">
+          <h2 class="card-title">{{ productEditStatus ? 'Edit Product' : 'Add New Product' }}</h2>
+          <form (ngSubmit)="onSubmit()" [formGroup]="productForm" class="slide">
+            <div class="form-group">
+              <label for="name">Name:</label>
+              <input type="text" class="form-control" id="name" name="name" formControlName="name" required>
+            </div>
+            <div class="form-group">
+              <label for="price">Price:</label>
+              <input type="number" class="form-control" id="price" name="price" formControlName="price" required>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <button type="submit" class="btn btn-primary btn-lg">{{ productEditStatus ? 'Save' : 'Add' }}</button>
+              <button type="button" class="btn btn-secondary btn-lg" (click)="onCancel()">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container mt-4">
+  <h2>Product List</h2>
+  <div class="row">
+    <div class="col-lg-4 col-sm-6 col-12 mb-4" *ngFor="let product of products">
+      <div class="card shadow bg-success bg-opacity-75 text-white p-4">
+        <div class="card-body">
+          <img src="..." class="card-img-top" alt="...">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text">Price: {{ product.price }}&#8372;</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <button class="btn btn-primary mr-2 px-3" (click)="editProduct(product)">Edit</button>
+            <button class="btn btn-danger px-3" (click)="deleteProduct(product.id)">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
